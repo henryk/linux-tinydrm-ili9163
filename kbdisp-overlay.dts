@@ -28,7 +28,7 @@
             display@0 {
                 compatible = "newhaven,1.8-128160EF", "ilitek,ili9163";
                 reg = <0>;
-                spi-max-frequency = <320000>;
+                spi-max-frequency = <32000000>;
                 dc-gpios = <&gpio 22 GPIO_ACTIVE_HIGH>;
                 reset-gpios = <&gpio 25 GPIO_ACTIVE_LOW>;
                 rotation = <180>;
