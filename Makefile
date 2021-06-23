@@ -10,6 +10,9 @@ DTC ?= $(KDIR)/scripts/dtc/dtc
 default: kbdisp.dtbo
 	$(MAKE) -C $(KDIR) M=$$PWD
 
+clean:
+	$(MAKE) -C $(KDIR) M=$$PWD clean
+
 %.dtbo: %-overlay.dts.pp
 	$(DTC) -@ -Hepapr -I dts -O dtb -o $@ $<
 
