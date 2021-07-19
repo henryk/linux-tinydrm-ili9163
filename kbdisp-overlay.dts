@@ -22,10 +22,10 @@
     fragment@1 {
         target-path = "/";
         __overlay__ {
-            backlight_pwm: backlight {
+            backlight_pwm: backlight0 {
                   compatible = "pwm-backlight";
 
-                  pwms = <&pwm 1 100000000>;
+                  pwms = <&pwm 1 2000000>;
                   brightness-levels = <0 4 8 16 32 64 128 255>;
                   default-brightness-level = <5>;
                   power-supply = <&vdd_3v3_reg>;
