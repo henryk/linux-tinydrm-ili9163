@@ -7,14 +7,42 @@
     compatible = "brcm,bcm2835";
 
     fragment@0 {
+        target = <&pwm>;
+        pwm_frag: __overlay__ {
+            #pwm-cells = <2>;
+
+            pinctrl-names = "default";
+            pinctrl-0 = <&pwm1_gpio13>;
+            assigned-clock-rates = <100000000>;
+            status = "okay";
+        };
+    };
+
+
+    fragment@1 {
+        target-path = "/";
+        __overlay__ {
+            backlight_pwm: backlight {
+                  compatible = "pwm-backlight";
+
+                  pwms = <&pwm 1 100000000>;
+                  brightness-levels = <0 4 8 16 32 64 128 255>;
+                  default-brightness-level = <5>;
+                  power-supply = <&vdd_3v3_reg>;
+                  status = "okay";
+            };
+        };
+    };
+
+
+    fragment@2 {
             target = <&spidev0>;
             __overlay__ {
                     status = "disabled";
             };
     };
 
-
-    fragment@1 {
+    fragment@3 {
         target = <&spi0>;
 
             __overlay__ {
@@ -34,6 +62,7 @@
                 rotation = <270>;
                 buswidth = <8>;
                 spi-3wire;
+                backlight = <&backlight_pwm>;
             };
         };
     };
