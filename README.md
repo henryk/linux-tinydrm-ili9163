@@ -10,10 +10,10 @@ Provided is also a device tree overlay file to connect the display to a Raspberr
 | 3.3V  |  | 2  | VDD  |
 | 3.3V  |  | 3  | VDD  |
 | CS0, GPIO 8  | 24 |  4 | /CS |
-| GPIO 25  | 22  |  5 | /RST |
+| GPIO 23  | 16  |  5 | /RST |
 | MOMI  | 19  |  6 | SDIO  |
 | GND  |  |  7 | GND |
-| GPIO 22  | 15  |  8  | D/C |
+| GPIO 18  | 12  |  8  | D/C |
 | SCL  | 23  |  9 | SCL |
 | GND  |   |  10 | GND  |
 | 3.3V |   |  11 | 4-wire mode |
